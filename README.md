@@ -1,16 +1,20 @@
 # Dicas e truques
 
+## Windows 11
+### Alterar variável PATH no PowerShell permanentemente
+```
+[Environment]::SetEnvironmentVariable("PATH", $Env:PATH + ";C:\Users\user\Scripts", [EnvironmentVariableTarget]::Machine)
+```
+
 ## Suricata
 ```
         tail -f /var/log/suricata/eve.json | jq -r -c 'select(.event_type=="alert")'
 ```
 ## LDAP
-
 ldapsearch  -H ldap://172.7.6.5 -x -W -D "user@domain.local" -b "dc=domain,dc=local" "(sAMAccountName=user)"
 LDAPTLS_REQCERT=never ldapsearch -Z -H ldap://172.5.6.7 -x -W -D "user@domain.local" -b "dc=domain,dc=local" "(sAMAccountName=user)"
 
 ## OpenBSD Firewall na Azure
-
 - Criar uma VM com OpenBSD
 - Criar uma VNet gigantesca, ex: 172.30.0.0/16
 - Criar uma subnet para o OpenBSD, nosso Virtual Appliance, ex: 172.30.0.0/29 *alocar ip estático para o OpenBSD, vamos chama-la de "vnet_default" nesse doc.
@@ -27,7 +31,6 @@ LDAPTLS_REQCERT=never ldapsearch -Z -H ldap://172.5.6.7 -x -W -D "user@domain.lo
 
 ## Information gathering
 ### DNS
-
 - Mapeamento completo
   - Subdomain takeover
   - DNSRecon
@@ -66,7 +69,6 @@ LDAPTLS_REQCERT=never ldapsearch -Z -H ldap://172.5.6.7 -x -W -D "user@domain.lo
 - MTR (My TraceRoute)
 
 ## Portscan
-
 - Host discovery (ping scanning)
 ```
                 -sL list targets to confirm ip addresses
