@@ -42,9 +42,11 @@ dnsrecon -d pixeon.com -k -b -z -y --iw
     -y Yandex search
     --iw Continue brute forcing even with wildcard records
     -x <file.xml> Save output in xml format
+    
 dnsenum --noreverse --nocolor -w -p 5 pixeon.com > dnsenum_pixeon.com
      -p 5 Number of google pages to process
      -w Perform whois queries
+     
 dnsmap pixeon.com -r dnsmap_pixeon.com -w /usr/share/dnsrecon/top1mil.txt           
 ```
 - Whois
