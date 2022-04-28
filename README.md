@@ -8,7 +8,7 @@
 
 ## Suricata
 ```
-        tail -f /var/log/suricata/eve.json | jq -r -c 'select(.event_type=="alert")'
+tail -f /var/log/suricata/eve.json | jq -r -c 'select(.event_type=="alert")'
 ```
 ## LDAP
 ldapsearch  -H ldap://172.7.6.5 -x -W -D "user@domain.local" -b "dc=domain,dc=local" "(sAMAccountName=user)"
