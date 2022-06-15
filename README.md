@@ -1,5 +1,8 @@
 # Dicas e truques
 
+## Testing redis with curl
+(printf "AUTH <password>\r\nPING\r\nQUIT\r\n";) | nc localhost 6379
+  
 ## Windows 11
 ### Alterar variável PATH no PowerShell permanentemente
 ```
