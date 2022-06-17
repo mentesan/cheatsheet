@@ -1,6 +1,6 @@
 # Dicas e truques
 
-## Testing redis with curl
+## Testar redis com curl
 (printf "AUTH <password>\r\nPING\r\nQUIT\r\n";) | nc localhost 6379
   
 ## Windows 11
