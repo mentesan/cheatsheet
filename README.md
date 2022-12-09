@@ -1,5 +1,37 @@
 # Dicas e truques
 
+
+## Deleting Wazuh indexes
+
+https://www.ibm.com/docs/en/cloud-private/3.1.2?topic=logging-manually-removing-log-indices
+Removendo através da API
+
+Execute os seguintes passos, logado no Kibana.
+
+* Listar os índices.
+Logar no console do Kibana e ir em Dev Tools.
+
+No painel da esquerda, apague o conteúdo e digite o seguinte para listar os índices:
+```
+GET /_cat/indices?v
+```
+Clique no triângulo verde para executar a chamada de API. Será apresentada a lista de índices do lado direito, assim como os dados de alocação, ex:
+
+health status index                             uuid                   pri rep docs.count docs.deleted store.size pri.store.size
+yellow open   logstash-2019.02.05               nbkLRGXqQ6enWMbLeYIO1w   5   1     932127            0    571.8mb        571.8mb
+
+* Delete os índices.
+
+Note: Jamais remova os índices searchguard e .kibana pois são essenciais para o funcionamento.
+
+Identifique os índices que deseja deletar, com base na lista apresentada.
+Digite o seguinte para deletar os índices desejados, pode ser usado o caracter "*" para deletar todos os índices correspondentes ao mês em questão.
+```
+DELETE /{your index name}
+DELETE /security-auditlog-2022.05*
+DELETE /wazuh-alerts-4.x-2022.06*
+```
+
 ## Testar redis com curl
 (printf "AUTH <password>\r\nPING\r\nQUIT\r\n";) | nc localhost 6379
   
