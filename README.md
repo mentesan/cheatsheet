@@ -1,5 +1,9 @@
 # Dicas e truques
 
+## Search Wazuh/OSSEC json logs
+```
+cat ossec-alerts-25.json | jq -r -c 'select(.agent.ip=="16.50.20.14")' > filtered.json
+```
 
 ## Deleting Wazuh indexes
 
