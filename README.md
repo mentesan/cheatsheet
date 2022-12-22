@@ -1,57 +1,87 @@
-# Dicas e truques
+# My personal cheat sheet
 
 ## Search Wazuh/OSSEC json logs
 ```
 cat ossec-alerts-25.json | jq -r -c 'select(.agent.ip=="16.50.20.14")' > filtered.json
 ```
+## Create exception rules on NAXSI WAF
 
+* Reset log file contents
+```
+:> /var/log/nginx/site.com-error.log
+```
+* Monitor the log file and test the application
+```
+tail -f /var/log/nginx/site.com-error.log
+ ``` 
+* Execute nx_util.py to generate exception rules
+```
+nx_util.py -o -p 1  -l /var/log/nginx/site.com-error.log
+or
+nx_util.py -o -p 1  -l /var/log/nginx/site.com-error.log >> /etc/nginx/naxsi_rules/site.rules
+```
+* Include rules in the site rules file referenced in nginx_site.conf and adjust accordingly
+```
+vim /etc/nginx/conf.d/site.com.conf
+vim /etc/nginx/naxsi_rules/site.rules
+```
 ## Deleting Wazuh indexes
 
 https://www.ibm.com/docs/en/cloud-private/3.1.2?topic=logging-manually-removing-log-indices
-Removendo através da API
 
-Execute os seguintes passos, logado no Kibana.
-
-* Listar os índices.
-Logar no console do Kibana e ir em Dev Tools.
-
-No painel da esquerda, apague o conteúdo e digite o seguinte para listar os índices:
+Execute the steps logged into Kibana.
+* List indexes
+Kibana-->Dev Tools.
+On the left panel, add a line to list indexes
 ```
 GET /_cat/indices?v
 ```
-Clique no triângulo verde para executar a chamada de API. Será apresentada a lista de índices do lado direito, assim como os dados de alocação, ex:
 
-health status index                             uuid                   pri rep docs.count docs.deleted store.size pri.store.size
-yellow open   logstash-2019.02.05               nbkLRGXqQ6enWMbLeYIO1w   5   1     932127            0    571.8mb        571.8mb
+Click on the green play button to execute the API call. You'll be presented a index list on the right side, there will be allocation status as well.
+```
+health status index                    uuid                   pri rep docs.count docs.deleted store.size pri.store.size
+yellow open   logstash-2019.02.05      nbkLRGXqQ6enWMbLeYIO1w   5   1     932127            0    571.8mb        571.8mb
+```
+* Delete indexes
 
-* Delete os índices.
+Note: Never remove these indexes:
+* searchguard
+* .kibana
+They are essential to the system.
 
-Note: Jamais remova os índices searchguard e .kibana pois são essenciais para o funcionamento.
+Identify the indexes you want to delete.
 
-Identifique os índices que deseja deletar, com base na lista apresentada.
-Digite o seguinte para deletar os índices desejados, pode ser usado o caracter "*" para deletar todos os índices correspondentes ao mês em questão.
+You can use "*" to delete a range, let's say all June indexes.
+
 ```
 DELETE /{your index name}
 DELETE /security-auditlog-2022.05*
 DELETE /wazuh-alerts-4.x-2022.06*
 ```
 
-## Testar redis com curl
+## Test redis with curl
+```
 (printf "AUTH <password>\r\nPING\r\nQUIT\r\n";) | nc localhost 6379
+```
   
 ## Windows 11
-### Alterar variável PATH no PowerShell permanentemente
+### Change PATH on PowerShell permanently
+
 ```
 [Environment]::SetEnvironmentVariable("PATH", $Env:PATH + ";C:\Users\user\Scripts", [EnvironmentVariableTarget]::Machine)
 ```
 
 ## Suricata monitoring
+
 ```
 tail -f /var/log/suricata/eve.json | jq -r -c 'select(.event_type=="alert")'
 ```
+
 ## LDAP
+```
 ldapsearch  -H ldap://172.7.6.5 -x -W -D "user@domain.local" -b "dc=domain,dc=local" "(sAMAccountName=user)"
 LDAPTLS_REQCERT=never ldapsearch -Z -H ldap://172.5.6.7 -x -W -D "user@domain.local" -b "dc=domain,dc=local" "(sAMAccountName=user)"
+```
 
 ## OpenBSD Firewall na Azure
 - Criar uma VM com OpenBSD
