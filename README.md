@@ -1,5 +1,20 @@
 # My personal cheat sheet
 
+## Get VM info from Azure hosts
+Linux (you can use "jq" to filter json, but maybe not every machine has it installed...
+```
+curl -s -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2021-02-01" | sed -n -e 's/^.*vmSize\"\:\"//p' | sed 's/".*//'
+```
+Windows
+```
+((Invoke-WebRequest -Headers @{ 'Metadata' = 'true'} -URI http://169.254.169.254/metadata/instance?api-version=2021-02-01).Content | ConvertFromJson).compute.vmSize
+```
+Zabbix system.run item
+```
+system.run[powershell.exe -NoProfile -ExecutionPolicy Bypass "((Invoke-WebRequest -UseBasicParsing -Headers @{ 'Metadata' = 'true'} -URI http://169.254.169.254/metadata/instance?api-version=2021-02-01).Content | ConvertFrom-Json).compute.vmSize",wait]
+```
+
+
 ## Search Wazuh/OSSEC json logs
 ```
 cat ossec-alerts-25.json | jq -r -c 'select(.agent.ip=="16.50.20.14")' > filtered.json
