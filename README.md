@@ -1,16 +1,17 @@
 - [My personal cheat sheet](#my-personal-cheat-sheet)
-  * [Get VM info from Azure hosts](#get-vm-info-from-azure-hosts)
-  * [Search Wazuh/OSSEC json logs](#search-wazuh-ossec-json-logs)
-  * [Create exception rules on NAXSI WAF](#create-exception-rules-on-naxsi-waf)
-  * [Deleting Elasticsearch indexes](#deleting-elasticsearch-indexes)
-  * [Test redis with curl](#test-redis-with-curl)
-  * [Windows 11](#windows-11)
-    + [Change PATH on PowerShell permanently](#change-path-on-powershell-permanently)
-  * [Suricata monitoring](#suricata-monitoring)
-  * [LDAP](#ldap)
-  * [OpenBSD Firewall na Azure](#openbsd-firewall-na-azure)
+- [Get VM info from Azure hosts](#get-vm-info-from-azure-hosts)
+- [Search Wazuh/OSSEC json logs](#search-wazuh-ossec-json-logs)
+- [Create exception rules on NAXSI WAF](#create-exception-rules-on-naxsi-waf)
+- [Deleting Elasticsearch indexes](#deleting-elasticsearch-indexes)
+- [Test redis with curl](#test-redis-with-curl)
+- [Windows 11](#windows-11)
+    * [Change PATH on PowerShell permanently](#change-path-on-powershell-permanently)
+- [Suricata monitoring](#suricata-monitoring)
+- [LDAP](#ldap)
+- [OpenBSD Firewall na Azure](#openbsd-firewall-na-azure)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+# My personal cheat sheet
 
 ## Get VM info from Azure hosts
 Linux (you can use "jq" to filter json, but maybe not every machine has it installed...
