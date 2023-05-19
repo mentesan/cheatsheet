@@ -1,4 +1,16 @@
-# My personal cheat sheet
+- [My personal cheat sheet](#my-personal-cheat-sheet)
+  * [Get VM info from Azure hosts](#get-vm-info-from-azure-hosts)
+  * [Search Wazuh/OSSEC json logs](#search-wazuh-ossec-json-logs)
+  * [Create exception rules on NAXSI WAF](#create-exception-rules-on-naxsi-waf)
+  * [Deleting Elasticsearch indexes](#deleting-elasticsearch-indexes)
+  * [Test redis with curl](#test-redis-with-curl)
+  * [Windows 11](#windows-11)
+    + [Change PATH on PowerShell permanently](#change-path-on-powershell-permanently)
+  * [Suricata monitoring](#suricata-monitoring)
+  * [LDAP](#ldap)
+  * [OpenBSD Firewall na Azure](#openbsd-firewall-na-azure)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 ## Get VM info from Azure hosts
 Linux (you can use "jq" to filter json, but maybe not every machine has it installed...
@@ -28,7 +40,7 @@ cat ossec-alerts-25.json | jq -r -c 'select(.agent.ip=="16.50.20.14")' > filtere
 * Monitor the log file and test the application
 ```
 tail -f /var/log/nginx/site.com-error.log
- ``` 
+ ```
 * Execute nx_util.py to generate exception rules
 ```
 nx_util.py -o -p 1  -l /var/log/nginx/site.com-error.log
@@ -40,7 +52,7 @@ nx_util.py -o -p 1  -l /var/log/nginx/site.com-error.log >> /etc/nginx/naxsi_rul
 vim /etc/nginx/conf.d/site.com.conf
 vim /etc/nginx/naxsi_rules/site.rules
 ```
-## Deleting Wazuh indexes
+## Deleting Elasticsearch indexes
 
 https://www.ibm.com/docs/en/cloud-private/3.1.2?topic=logging-manually-removing-log-indices
 
@@ -78,7 +90,7 @@ DELETE /wazuh-alerts-4.x-2022.06*
 ```
 (printf "AUTH <password>\r\nPING\r\nQUIT\r\n";) | nc localhost 6379
 ```
-  
+
 ## Windows 11
 ### Change PATH on PowerShell permanently
 
