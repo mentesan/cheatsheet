@@ -1,4 +1,4 @@
-- [My personal cheat sheet](#my-personal-cheat-sheet)
+# My personal cheat sheet
 - [Get VM info from Azure hosts](#get-vm-info-from-azure-hosts)
 - [Search Wazuh/OSSEC json logs](#search-wazuh-ossec-json-logs)
 - [Create exception rules on NAXSI WAF](#create-exception-rules-on-naxsi-waf)
@@ -11,7 +11,6 @@
 - [OpenBSD Firewall na Azure](#openbsd-firewall-na-azure)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-# My personal cheat sheet
 
 ## Get VM info from Azure hosts
 Linux (you can use "jq" to filter json, but maybe not every machine has it installed...
