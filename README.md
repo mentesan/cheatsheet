@@ -1,6 +1,6 @@
 # My personal cheat sheet
 - [Get VM info from Azure hosts](#get-vm-info-from-azure-hosts)
-- [Search Wazuh/OSSEC json logs](#search-wazuh-ossec-json-logs)
+- [Search Wazuh json logs](#search-wazuh-ossec-json-logs)
 - [Create exception rules on NAXSI WAF](#create-exception-rules-on-naxsi-waf)
 - [Deleting Elasticsearch indexes](#deleting-elasticsearch-indexes)
 - [Test redis with curl](#test-redis-with-curl)
@@ -27,7 +27,7 @@ system.run[powershell.exe -NoProfile -ExecutionPolicy Bypass "((Invoke-WebReques
 ```
 
 
-## Search Wazuh/OSSEC json logs
+## Search Wazuh json logs
 ```
 cat ossec-alerts-25.json | jq -r -c 'select(.agent.ip=="16.50.20.14")' > filtered.json
 ```
