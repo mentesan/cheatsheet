@@ -1,6 +1,6 @@
 # My personal cheat sheet
 - [Get VM info from Azure hosts](#get-vm-info-from-azure-hosts)
-- [Search Wazuh json logs](#search-wazuh-ossec-json-logs)
+- [Search Wazuh json logs](#search-wazuh-json-logs)
 - [Create exception rules on NAXSI WAF](#create-exception-rules-on-naxsi-waf)
 - [Deleting Elasticsearch indexes](#deleting-elasticsearch-indexes)
 - [Test redis with curl](#test-redis-with-curl)
