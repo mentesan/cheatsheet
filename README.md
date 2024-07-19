@@ -1,4 +1,5 @@
 # My personal cheat sheet
+- [Change any Wazuh password](#change-any-wazuh-password)
 - [Get VM info from Azure hosts](#get-vm-info-from-azure-hosts)
 - [Search Wazuh json logs](#search-wazuh-json-logs)
 - [Create exception rules on NAXSI WAF](#create-exception-rules-on-naxsi-waf)
@@ -11,6 +12,21 @@
 - [OpenBSD Firewall na Azure](#openbsd-firewall-na-azure)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+## Change any Wazuh user password
+1. Access your master node and navigate to the python3 console:
+```
+root@wazuh-master:/# /var/ossec/framework/python/bin/python3
+```
+2. Once in the python3 console, import the update_user framework function and use it with the user_id and a new password. In this case, the user_id is 1 for the “wazuh” user.
+```
+>>> from wazuh.security import update_user >>> update_user(user_id="1", password="NewPassword1!").render()
+```
+3. If the process was successful, you will receive the following output:
+{'data': {'affected_items': [{'id': 1, 'username': 'wazuh', 'allow_run_as': True, 'roles': [1]}], 'total_affected_items': 1, 'total_failed_items': 0, 'failed_items': []}, 'message': 'User was
+
+Original post: https://groups.google.com/g/wazuh/c/zxhdkmSkclE
+
 
 ## Get VM info from Azure hosts
 Linux (you can use "jq" to filter json, but maybe not every machine has it installed...
