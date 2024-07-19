@@ -13,7 +13,7 @@
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
-## Change any Wazuh user password
+## Change any Wazuh password
 1. Access your master node and navigate to the python3 console:
 ```
 root@wazuh-master:/# /var/ossec/framework/python/bin/python3
