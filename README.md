@@ -1,4 +1,5 @@
 # My personal cheat sheet
+- [Remove PEM password from certificate](#remove-pem-password-from-certificate)
 - [Change any Wazuh password](#change-any-wazuh-password)
 - [Get VM info from Azure hosts](#get-vm-info-from-azure-hosts)
 - [Search Wazuh json logs](#search-wazuh-json-logs)
@@ -12,6 +13,11 @@
 - [OpenBSD Firewall na Azure](#openbsd-firewall-na-azure)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+## Remove PEM password from certificate
+```
+openssl rsa -in futurestudio_with_pass.key -out futurestudio.key
+```
 
 ## Change any Wazuh password
 1. Access your master node and navigate to the python3 console:
