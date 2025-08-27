@@ -14,6 +14,11 @@
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
+## Extract private key from PFX certificate
+```
+openssl pkcs12 -in cert.pfx -nocerts -out private.key
+```
+
 ## Remove PEM password from certificate
 ```
 openssl rsa -in futurestudio_with_pass.key -out futurestudio.key
