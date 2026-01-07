@@ -10,7 +10,6 @@
     * [Change PATH on PowerShell permanently](#change-path-on-powershell-permanently)
 - [Suricata monitoring](#suricata-monitoring)
 - [LDAP](#ldap)
-- [OpenBSD Firewall na Azure](#openbsd-firewall-na-azure)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
